@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class VendingMachineItemTest {
 	//Declaring objects for the test
-	VendingMachineItem item1, item2, item3;
+	VendingMachineItem item1, item2, item3, item4;
 	
 	/*
 	 * Initialize the test objects for the test class
@@ -17,14 +17,7 @@ public class VendingMachineItemTest {
 	public void setUp() throws Exception {
 		item1 = new VendingMachineItem("Snickers", 1.25);
 		item2 = new VendingMachineItem("Swedish Fish", 1.50);
-	}
-	
-	/*
-	 * Test to raise an exception when a price of 0 is passed to the constructor
-	 */
-	@Test(expected = VendingMachineException.class)
-	public void testVendingMachineException(){
-		item3 = new VendingMachineItem("Cinnabon", 0);
+		
 	}
 	
 	/*
@@ -42,6 +35,22 @@ public class VendingMachineItemTest {
 	public void testGetPrice(){
 		assertEquals(1.25, item1.getPrice(), 0.01);
 		assertEquals(1.50, item2.getPrice(), 0.01);
+	}
+	
+	/*
+	 * Test to raise an exception when a price of 0 is passed to the constructor
+	 */
+	@Test(expected = VendingMachineException.class)
+	public void testVendingMachinePriceLessThanZeroException(){
+		item3 = new VendingMachineItem("Cinnabon", 0);
+	}
+	
+	/*
+	 * Test to raise an exception when a name of null is passed to the constructor
+	 */
+	@Test(expected = VendingMachineException.class)
+	public void testVendingMachineNameIsNullException(){
+		item4 = new VendingMachineItem(null, 0.75);
 	}
 	
 	

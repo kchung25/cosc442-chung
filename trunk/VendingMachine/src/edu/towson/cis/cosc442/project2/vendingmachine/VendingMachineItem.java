@@ -10,7 +10,10 @@ public class VendingMachineItem {
 
 	// The price of the item
 	private double price;
-
+	
+	// Exception message for when the name is null
+	private final static String NAME_IS_NULL_MESSAGE ="Name cannot be null";
+	
 	// Exception message for when the price is less than zero
 	private final static String PRICE_LESS_THAN_ZERO_MESSAGE = "Price cannot be less than zero";
 	
@@ -23,7 +26,12 @@ public class VendingMachineItem {
 	 * @throws VendingMachineException Thrown if price is less than zero
 	 */
 	public VendingMachineItem( String name, double price ) throws VendingMachineException {
-		this.name = name;
+		if(name == null){
+			throw new VendingMachineException(NAME_IS_NULL_MESSAGE);
+		}
+		else{
+			this.name = name;
+		}
 		if( price <= 0 ) {
 			throw new VendingMachineException(PRICE_LESS_THAN_ZERO_MESSAGE);
 		} else {
