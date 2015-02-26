@@ -1,4 +1,4 @@
-package edu.towson.cis.cosc442.project2.vendingmachine;
+package edu.towson.cis.cosc442.project3.vendingmachine;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -88,7 +88,6 @@ public class VendingMachineTest {
 	@Test(expected = VendingMachineException.class)
 	public void testInsertMoneyInvalidMoneyException(){
 		fullVM.insertMoney(0.00);
-		fullVM.insertMoney(-1.00);
 	}
 	
 	/*
@@ -113,13 +112,15 @@ public class VendingMachineTest {
 		assertTrue(fullVM.makePurchase("B"));
 		fullVM.insertMoney(1.25);
 		assertTrue(fullVM.makePurchase("C"));
-		fullVM.insertMoney(1.50);
-		assertTrue(fullVM.makePurchase("D"));
+		fullVM.insertMoney(1.00);
+		assertFalse(fullVM.makePurchase("D"));
 		assertFalse(fullVM.makePurchase("A"));
 		assertFalse(fullVM.makePurchase("B"));
 		assertFalse(fullVM.makePurchase("C"));
 		assertFalse(fullVM.makePurchase("D"));
-	}
+		
+		
+	}	
 	
 	/*
 	 * Test for the returnChange method in the VendingMachine class
