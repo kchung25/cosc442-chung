@@ -62,13 +62,13 @@ public class RecipeTest {
 	public void testEquals_3()
 		throws Exception {
 		Recipe fixture = new Recipe();
-		fixture.setName("");
+		fixture.setName("Latte");
 		Recipe r = new Recipe();
-
+		r.setName("Latte");
 		boolean result = fixture.equals(r);
 
 		// add additional test code here
-		assertEquals(false, result);
+		assertTrue(result);
 	}
 
 	/**
@@ -202,6 +202,7 @@ public class RecipeTest {
 		fixture.setAmtChocolate(amtChocolate);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtChocolate() == 0);
 	}
 
 	/**
@@ -221,6 +222,7 @@ public class RecipeTest {
 		fixture.setAmtChocolate(amtChocolate);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtChocolate() == amtChocolate);
 	}
 
 	/**
@@ -240,6 +242,7 @@ public class RecipeTest {
 		fixture.setAmtCoffee(amtCoffee);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtCoffee() == 0);
 	}
 
 	/**
@@ -259,6 +262,7 @@ public class RecipeTest {
 		fixture.setAmtCoffee(amtCoffee);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtCoffee() == amtCoffee);
 	}
 
 	/**
@@ -273,11 +277,12 @@ public class RecipeTest {
 		throws Exception {
 		Recipe fixture = new Recipe();
 		fixture.setName("");
-		int amtMilk = 1;
+		int amtMilk = -1;
 
 		fixture.setAmtMilk(amtMilk);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtMilk() == 0);
 	}
 
 	/**
@@ -292,11 +297,12 @@ public class RecipeTest {
 		throws Exception {
 		Recipe fixture = new Recipe();
 		fixture.setName("");
-		int amtMilk = -1;
+		int amtMilk = 1;
 
 		fixture.setAmtMilk(amtMilk);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtMilk() == amtMilk);
 	}
 
 	/**
@@ -316,6 +322,7 @@ public class RecipeTest {
 		fixture.setAmtSugar(amtSugar);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtSugar() == 0);
 	}
 
 	/**
@@ -335,6 +342,7 @@ public class RecipeTest {
 		fixture.setAmtSugar(amtSugar);
 
 		// add additional test code here
+		assertTrue(fixture.getAmtSugar() == amtSugar);
 	}
 
 	/**
@@ -373,6 +381,7 @@ public class RecipeTest {
 		fixture.setPrice(price);
 
 		// add additional test code here
+		assertTrue(fixture.getPrice() == 0);
 	}
 
 	/**
@@ -392,6 +401,7 @@ public class RecipeTest {
 		fixture.setPrice(price);
 
 		// add additional test code here
+		assertTrue(fixture.getPrice() == price);
 	}
 
 	/**

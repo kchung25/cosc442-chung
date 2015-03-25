@@ -11,7 +11,7 @@ public class CoffeeMaker {
 	/** Array describing if the array is full */
 	private final boolean [] recipeFull;
 	/** Inventory of the coffee maker */
-    private final Inventory inventory;
+    private Inventory inventory;
 	
     /**
      * Constructor for the coffee maker
@@ -119,17 +119,18 @@ public class CoffeeMaker {
     
      * @return boolean */
     public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate) {
-        boolean canAddInventory = true;
-        if(amtCoffee < 0 || amtMilk < 0 || amtSugar > 0 || amtChocolate < 0) { 
-            canAddInventory = false;
-        }
-        else {
-	        inventory.setCoffee(inventory.getCoffee() + amtCoffee);
+        if(amtCoffee >= 0 && amtMilk >= 0 && amtSugar >= 0 && amtChocolate >= 0) { 
+            
+            inventory.setCoffee(inventory.getCoffee() + amtCoffee);
 	        inventory.setMilk(inventory.getMilk() + amtMilk);
 	        inventory.setSugar(inventory.getSugar() + amtSugar);
 	        inventory.setChocolate(inventory.getChocolate() + amtChocolate);
+	        return true;
         }
-        return canAddInventory;
+        else {
+        	return false;
+        }
+        
     }
     
     /**
@@ -156,7 +157,7 @@ public class CoffeeMaker {
             canMakeCoffee = false;
         }
         if(canMakeCoffee) {
-	        inventory.setCoffee(inventory.getCoffee() + r.getAmtCoffee()); 
+	        inventory.setCoffee(inventory.getCoffee() - r.getAmtCoffee()); 
 	        inventory.setMilk(inventory.getMilk() - r.getAmtMilk());
 	        inventory.setSugar(inventory.getSugar() - r.getAmtSugar());
 	        inventory.setChocolate(inventory.getChocolate() - r.getAmtChocolate());
