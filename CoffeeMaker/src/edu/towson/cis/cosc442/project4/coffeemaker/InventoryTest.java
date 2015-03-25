@@ -45,11 +45,11 @@ public class InventoryTest {
 		throws Exception {
 		Inventory fixture = new Inventory();
 		Recipe r = new Recipe();
-
+		r.setAmtCoffee(50);
 		boolean result = fixture.enoughIngredients(r);
 
 		// add additional test code here
-		assertEquals(true, result);
+		assertFalse(result);
 	}
 
 	/**
@@ -64,11 +64,83 @@ public class InventoryTest {
 		throws Exception {
 		Inventory fixture = new Inventory();
 		Recipe r = new Recipe();
-
+		r.setAmtMilk(50);
 		boolean result = fixture.enoughIngredients(r);
 
 		// add additional test code here
-		assertEquals(true, result);
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtSugar(50);
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_4()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtChocolate(50);
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_5()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtCoffee(15);
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_6()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtMilk(15);
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_7()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtSugar(15);
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_8()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtChocolate(15);
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertTrue(result);
 	}
 
 	/**
@@ -159,6 +231,7 @@ public class InventoryTest {
 		fixture.setChocolate(chocolate);
 
 		// add additional test code here
+		assertTrue(fixture.getChocolate() == 0);
 	}
 
 	/**
@@ -177,6 +250,18 @@ public class InventoryTest {
 		fixture.setChocolate(chocolate);
 
 		// add additional test code here
+		assertTrue(fixture.getChocolate() == 1);
+	}
+
+	@Test
+	public void testSetChocolate_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		int chocolate = 0;
+
+		fixture.setChocolate(chocolate);
+		
+		assertTrue(fixture.getChocolate() == 0);
 	}
 
 	/**
@@ -195,6 +280,7 @@ public class InventoryTest {
 		fixture.setCoffee(coffee);
 
 		// add additional test code here
+		assertTrue(fixture.getCoffee() == 0);
 	}
 
 	/**
@@ -213,6 +299,18 @@ public class InventoryTest {
 		fixture.setCoffee(coffee);
 
 		// add additional test code here
+		assertTrue(fixture.getCoffee() == 1);
+	}
+
+	@Test
+	public void testSetCoffee_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		int coffee = 0;
+		
+		fixture.setCoffee(coffee);
+		
+		assertTrue(fixture.getCoffee() == 0);
 	}
 
 	/**
@@ -231,7 +329,9 @@ public class InventoryTest {
 		fixture.setMilk(milk);
 
 		// add additional test code here
+		assertTrue(fixture.getMilk() == 0);
 	}
+	
 
 	/**
 	 * Run the void setMilk(int) method test.
@@ -249,6 +349,17 @@ public class InventoryTest {
 		fixture.setMilk(milk);
 
 		// add additional test code here
+		assertTrue(fixture.getMilk() == 1);
+	}
+
+	@Test
+	public void testSetMilk_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		int milk = 0;
+		fixture.setMilk(milk);
+		
+		assertTrue(fixture.getMilk() == 0);
 	}
 
 	/**
@@ -267,6 +378,7 @@ public class InventoryTest {
 		fixture.setSugar(sugar);
 
 		// add additional test code here
+		assertTrue(fixture.getSugar() == 0);
 	}
 
 	/**
@@ -285,6 +397,17 @@ public class InventoryTest {
 		fixture.setSugar(sugar);
 
 		// add additional test code here
+		assertTrue(fixture.getSugar() == sugar);
+	}
+
+	@Test
+	public void testSetSugar_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		int sugar = 0;
+		fixture.setSugar(sugar);
+		
+		assertTrue(fixture.getSugar() == sugar);
 	}
 
 	/**

@@ -67,8 +67,10 @@ public class CoffeeMakerTest {
 		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
 
 		// add additional test code here
-		assertEquals(false, result);
+		assertFalse(result);
+		
 	}
+
 
 	/**
 	 * Run the boolean addInventory(int,int,int,int) method test.
@@ -79,28 +81,6 @@ public class CoffeeMakerTest {
 	 */
 	@Test
 	public void testAddInventory_2()
-		throws Exception {
-		CoffeeMaker fixture = new CoffeeMaker();
-		int amtCoffee = 1;
-		int amtMilk = 1;
-		int amtSugar = 0;
-		int amtChocolate = 1;
-
-		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
-
-		// add additional test code here
-		assertEquals(true, result);
-	}
-
-	/**
-	 * Run the boolean addInventory(int,int,int,int) method test.
-	 *
-	 * @throws Exception
-	 *
-	 * @generatedBy CodePro at 3/22/15 5:24 PM
-	 */
-	@Test
-	public void testAddInventory_3()
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
 		int amtCoffee = -1;
@@ -122,18 +102,26 @@ public class CoffeeMakerTest {
 	 * @generatedBy CodePro at 3/22/15 5:24 PM
 	 */
 	@Test
-	public void testAddInventory_4()
+	public void testAddInventory_3()
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
-		int amtCoffee = 1;
-		int amtMilk = -1;
-		int amtSugar = 1;
-		int amtChocolate = 1;
+		int coffeeBeforeAdd = fixture.checkInventory().getCoffee();
+		int milkBeforeAdd = fixture.checkInventory().getMilk();
+		int sugarBeforeAdd = fixture.checkInventory().getSugar();
+		int chocolateBeforeAdd = fixture.checkInventory().getChocolate();
+		int amtCoffee = 10;
+		int amtMilk = 5;
+		int amtSugar = 5;
+		int amtChocolate = 10;
 
 		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
 
 		// add additional test code here
-		assertEquals(false, result);
+		assertEquals(true, result);
+		assertTrue(fixture.checkInventory().getCoffee() > coffeeBeforeAdd);
+		assertTrue(fixture.checkInventory().getMilk() > milkBeforeAdd);
+		assertTrue(fixture.checkInventory().getSugar() > sugarBeforeAdd);
+		assertTrue(fixture.checkInventory().getChocolate() > chocolateBeforeAdd);
 	}
 
 	/**
@@ -144,19 +132,20 @@ public class CoffeeMakerTest {
 	 * @generatedBy CodePro at 3/22/15 5:24 PM
 	 */
 	@Test
-	public void testAddInventory_5()
+	public void testAddInventory_4()
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
-		int amtCoffee = 1;
-		int amtMilk = 1;
-		int amtSugar = 1;
-		int amtChocolate = 1;
+		int amtCoffee = 0;
+		int amtMilk = 0;
+		int amtSugar = 0;
+		int amtChocolate = 0;
 
 		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
 
 		// add additional test code here
-		assertEquals(false, result);
+		assertTrue(result);
 	}
+
 
 	/**
 	 * Run the boolean addRecipe(Recipe) method test.
@@ -516,11 +505,18 @@ public class CoffeeMakerTest {
 	public void testMakeCoffee1()
 		throws Exception {
 		int amtPaid = 50;
-
+		int amtCoffee = oneRecipe.checkInventory().getCoffee();
+		int amtMilk = oneRecipe.checkInventory().getMilk();
+		int amtSugar = oneRecipe.checkInventory().getSugar();
+		int amtChocolate = oneRecipe.checkInventory().getChocolate();
 		int result = oneRecipe.makeCoffee(coffee, amtPaid);
 
 		// add additional test code here
 		assertEquals(0, result);
+		assertTrue(oneRecipe.checkInventory().getCoffee() < amtCoffee);
+		assertTrue(oneRecipe.checkInventory().getMilk() < amtMilk);
+		assertTrue(oneRecipe.checkInventory().getSugar() < amtSugar);
+		assertTrue(oneRecipe.checkInventory().getChocolate() <= amtChocolate);
 	}
 
 	/**
