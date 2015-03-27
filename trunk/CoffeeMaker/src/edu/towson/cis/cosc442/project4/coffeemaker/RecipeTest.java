@@ -222,8 +222,22 @@ public class RecipeTest {
 		fixture.setAmtChocolate(amtChocolate);
 
 		// add additional test code here
-		assertTrue(fixture.getAmtChocolate() == amtChocolate);
+		assertTrue(fixture.getAmtChocolate() == 1);
 	}
+	
+	@Test
+	public void testSetAmtChocolate_3()
+		throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName("");
+		int amtChocolate = 0;
+
+		fixture.setAmtChocolate(amtChocolate);
+
+		// add additional test code here
+		assertTrue(fixture.getAmtChocolate() == 0);
+	}
+
 
 	/**
 	 * Run the void setAmtCoffee(int) method test.
@@ -262,7 +276,20 @@ public class RecipeTest {
 		fixture.setAmtCoffee(amtCoffee);
 
 		// add additional test code here
-		assertTrue(fixture.getAmtCoffee() == amtCoffee);
+		assertTrue(fixture.getAmtCoffee() == 1);
+	}
+	
+	@Test
+	public void testSetAmtCoffee_3()
+		throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName("");
+		int amtCoffee = 0;
+
+		fixture.setAmtCoffee(amtCoffee);
+
+		// add additional test code here
+		assertTrue(fixture.getAmtCoffee() == 0);
 	}
 
 	/**
@@ -302,7 +329,20 @@ public class RecipeTest {
 		fixture.setAmtMilk(amtMilk);
 
 		// add additional test code here
-		assertTrue(fixture.getAmtMilk() == amtMilk);
+		assertTrue(fixture.getAmtMilk() == 1);
+	}
+	
+	@Test
+	public void testSetAmtMilk_3()
+		throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName("");
+		int amtMilk = 0;
+
+		fixture.setAmtMilk(amtMilk);
+
+		// add additional test code here
+		assertTrue(fixture.getAmtMilk() == 0);
 	}
 
 	/**
@@ -342,7 +382,20 @@ public class RecipeTest {
 		fixture.setAmtSugar(amtSugar);
 
 		// add additional test code here
-		assertTrue(fixture.getAmtSugar() == amtSugar);
+		assertTrue(fixture.getAmtSugar() == 1);
+	}
+	
+	@Test
+	public void testSetAmtSugar_3()
+		throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName("");
+		int amtSugar = 0;
+
+		fixture.setAmtSugar(amtSugar);
+
+		// add additional test code here
+		assertTrue(fixture.getAmtSugar() == 0);
 	}
 
 	/**

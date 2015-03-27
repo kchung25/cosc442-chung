@@ -28,6 +28,9 @@ public class Recipe {
     	if(amtChocolate > 0) {
     		this.amtChocolate = amtChocolate;
     	}
+    	else if(amtChocolate == 0){
+    		this.amtChocolate = 0;
+    	}
     	else {
     		this.amtChocolate = 0;
     	}
@@ -46,6 +49,9 @@ public class Recipe {
     public void setAmtCoffee(int amtCoffee) {
     	if(amtCoffee > 0) {
     		this.amtCoffee = amtCoffee;
+    	}
+    	else if(amtCoffee == 0){
+    		this.amtCoffee = 0;
     	}
     	else {
     		this.amtCoffee = 0;
@@ -66,6 +72,9 @@ public class Recipe {
     	if(amtMilk > 0) {
     		this.amtMilk = amtMilk;
     	}
+    	else if(amtMilk == 0){
+    		this.amtMilk = amtMilk;
+    	}
     	else{
     		this.amtMilk = 0;
     	}
@@ -84,6 +93,9 @@ public class Recipe {
     public void setAmtSugar(int amtSugar) {
     	if(amtSugar > 0) {
     		this.amtSugar = amtSugar;
+    	}
+    	else if(amtSugar == 0){
+    		this.amtSugar = 0;
     	}
     	else {
     		this.amtSugar = 0;
@@ -117,6 +129,9 @@ public class Recipe {
     public void setPrice(int price) {
     	if(price > 0) {
     		this.price = price;
+    	}
+    	else if(price == 0){
+    		this.price = 0;
     	}
     	else {
     		this.price = 0;

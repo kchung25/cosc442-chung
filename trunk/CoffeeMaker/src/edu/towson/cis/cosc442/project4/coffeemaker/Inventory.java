@@ -34,6 +34,9 @@ public class Inventory {
     	if(chocolate > 0) {
     		Inventory.chocolate = chocolate;
     	}
+    	if(chocolate == 0){
+    		Inventory.chocolate = 0;
+    	}
     	else {
     		Inventory.chocolate = 0;
     	}
@@ -54,6 +57,9 @@ public class Inventory {
     	if(coffee > 0) {
     		Inventory.coffee = coffee;
     	}
+    	else if(coffee == 0){
+    		Inventory.coffee = 0;
+    	}
     	else {
     		Inventory.coffee = 0;
     	}
@@ -73,6 +79,9 @@ public class Inventory {
     	if(milk > 0) {
     		Inventory.milk = milk;
     	}
+    	else if(milk == 0){
+    		Inventory.milk = 0;
+    	}
     	else {
     		Inventory.milk = 0;
     	}
@@ -91,6 +100,9 @@ public class Inventory {
     public void setSugar(int sugar) {
     	if(sugar > 0) {
     		Inventory.sugar = sugar;
+    	}
+    	else if(sugar == 0){
+    		Inventory.sugar = 0;
     	}
     	else {
     		Inventory.sugar = 0;
