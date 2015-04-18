@@ -351,7 +351,7 @@ public class WMethod{
    /* 
    Driver for the W-algorithm.
    */
-   public static void main(String [] args){
+   public static void main(String [] args) throws FileNotFoundException{
      
      System.out.println("Test Generation Using the W-method. V2.0. August 1, 2013\n");
      fileSource=new Scanner(System.in);
@@ -381,13 +381,41 @@ public class WMethod{
      Vector <String> tests=generateTests(transitionCover, w); // Generate tests.
      Utilities.printAllTestCases(tests); // Print tests.
      
+     /**
+      * output test cases to a Java file.
+      */
+	 PrintStream testCases = new PrintStream(new File("JamesBondTest.txt"));
+	 testCases.println("import static org.junit.Assert.*;\nimport org.junit.After;\nimport org.junit.Before;\nimport org.junit.Test;");
+	 testCases.println("public class JamesBondTest{");
+     testCases.println("\tJamesBond jb;");
+     testCases.println("\t@Before \n\tpublic void setUp() throws Exception {");
+     testCases.println("\t\tjb = new JamesBond(); \n\t}");
+     testCases.println("\t@After \n\tpublic void tearDown() throws Exception {");
+     testCases.println("\t\tjb = null; \n\t}");
+     
+     int testCounter = 0;
      for(String s : tests){
     	 StringBuilder test = new StringBuilder();
     	 for(char c : s.toCharArray()){
     		 test.append(c).append(" ");
     	 }
-    	 Utilities.runFSM(FSM, 1, test.toString(), " ");
+    	 boolean outputPattern  = Utilities.runFSM(FSM, 1, test.toString(), " ");
+    	 testCases.println("\t@Test");
+    	 testCases.println("\tpublic void bondRegexTest" + testCounter + "(){");
+    	 if(outputPattern){
+    		 testCases.println("\t\tassertTrue(jb.bondRegex(\"" + s + "\"));");
+    	 }
+    	 else{
+    		 testCases.println("\t\tassertFalse(jb.bondRegex(\"" + s + "\"));");
+    	 }
+    	 
+    	 testCases.println("\t}");
+    	 testCounter++;
+    	 
      }
+     
+     testCases.println("}");
+     testCases.close();
      
    }// End of main()
    
