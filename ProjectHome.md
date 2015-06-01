@@ -1,0 +1,1 @@
+This repository contains all of the projects I worked on for COSC 442 Spring 2015 at Towson University
